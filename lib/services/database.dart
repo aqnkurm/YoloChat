@@ -52,6 +52,34 @@ class DatabaseMethods {
         .add(chatMessageData).catchError((e){
           print(e.toString());
     });
+    
+    /*******Robin*********/
+    /*
+    THIS IS JUST SUDO CODE NOT SYNTAX CORRECT
+    //You added the message to the DB, now you just need to notify the other person
+    // You probably want to have this function declarion...
+    
+    Future<void> addMessage(String chatRoomId, userId, chatMessageData){
+                                               ^^^  
+    // Get all the user IDs in the chatroom
+    usersInChatroom = Firestore.instance.collection("chatroom")
+      .document(chatRoomId)
+      .collection("users")
+      .orderBy("whocares")
+      .snapshots()
+      
+     // for each user in chatroom, if not the sending user, then send a notification
+     usersInChatroom.forEach((user_element) => {
+       if(user_element != user) {
+          // need to write this function
+          sendNotification(String chatRoomId, user_element, chatMessageData) // You would need to just right this function that handles the act of delivering a notification
+                                                                             // chatRoomId      --> Name of chatroom for notification
+                                                                             // user_element    --> Id of user to deliver too
+                                                                             // chatMessageData --> Message to display in notification
+       }
+     })
+    */
+    
   }
 
   getUserChats(String itIsMyName) async {
